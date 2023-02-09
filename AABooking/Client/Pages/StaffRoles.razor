@@ -1,0 +1,66 @@
+﻿@page "/StaffRoles"
+@using Staff
+@using System.Collections.Generic
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Staff Information</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Staff Information</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Restaurant</th>
+            <th>Contact</th>
+            <th>Address</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var staff in staffList)
+        {
+            <tr>
+                <td>@staff.Name</td>
+                <td>@staff.Restaurant</td>
+                <td>@staff.Contact</td>
+                <td>@staff.Address</td>
+                <td>@staff.Role</td>
+                <td>
+                    <a asp-page="./EditRole" asp-route-id="@staff.Id">Edit Role</a>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
+
+@code {
+    private List<Staff> staffList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // fetch staffList data from the database or other source here
+        staffList = new List<Staff>
+        {
+            new Staff { Id = 1, Name = "John", Restaurant = "Italian Restaurant", Contact = "555-555-5555", Address = "123 Main St", Role = "Manager" },
+            new Staff { Id = 2, Name = "Jane ", Restaurant = "Mexican Restaurant", Contact = "555-555-5556", Address = "124 Main St", Role = "Chef" },
+            new Staff { Id = 3, Name = "Bob Smith", Restaurant = "Chinese Restaurant", Contact = "555-555-5557", Address = "125 Main St", Role = "Server" },
+        };
+    }
+}
+
+
+
+

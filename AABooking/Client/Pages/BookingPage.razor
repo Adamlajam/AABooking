@@ -1,32 +1,4 @@
-﻿using System;
-using System.Data.SqlClient;
-
-public class BookingController {
-
-    public void SubmitBooking(string selectedRestaurant, string selectedTable, DateTime selectedTime, int customerID, int reservationID) {
-        string connectionString = "Your database connection string";
-
-        using (SqlConnection connection = new SqlConnection(connectionString)) {
-            connection.Open();
-
-            string sql = "INSERT INTO dbo.Reservations (CustomerID, ReservationID, Restaurant, TableNumber, ReservationTime) " +
-                         "VALUES (@customerID, @reservationID, @selectedRestaurant, @selectedTable, @selectedTime)";
-
-            using (SqlCommand command = new SqlCommand(sql, connection)) {
-                command.Parameters.AddWithValue("@customerID", customerID);
-                command.Parameters.AddWithValue("@reservationID", reservationID);
-                command.Parameters.AddWithValue("@selectedRestaurant", selectedRestaurant);
-                command.Parameters.AddWithValue("@selectedTable", selectedTable);
-                command.Parameters.AddWithValue("@selectedTime", selectedTime);
-
-                command.ExecuteNonQuery();
-            }
-        }
-    }
-}
-
-
-@page "/BookingPage"
+﻿@page "/BookingPage"
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,7 +61,7 @@ public class BookingController {
 </head>
 <body>
 
-      <form method="post" action="/BookingConfirmation">
+    <form method="post" action="/BookingConfirmation">
         <h1>Reserve a Table</h1>
         <div>
             <label for="restaurantList">Select a restaurant:</label>
@@ -117,13 +89,13 @@ public class BookingController {
             <input type="hidden" name="selectedTable" value="@SelectedTable">
             <input type="hidden" name="selectedTime" value="@SelectedTime.ToString("yyyy-MM-ddTHH:mm")">
         </div>
-        </form>
-    
+    </form>
+
 </body>
 </html>
-
 @functions {
     public string SelectedRestaurant { get; set; }
     public string SelectedTable { get; set; }
     public DateTime SelectedTime { get; set; }
 }
+
