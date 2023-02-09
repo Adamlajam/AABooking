@@ -1,87 +1,86 @@
-﻿@page"/Testimonials"
+﻿@page "/Testimonials"
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Testimonials</title>
     <style>
-        .testimonial-section {
+        body {
             background-color: #FFC107;
-            padding: 50px;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
         }
-        .testimonial-section h1 {
-        font-size: 36px;
-        color: #333;
-        margin-bottom: 40px;
-    }
 
-    .testimonial-section p {
-        font-size: 18px;
-        color: #333;
-        margin-bottom: 40px;
-    }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
 
-    .testimonial-section form {
-        background-color: #fff;
-        padding: 40px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px #333;
-        margin-top: 40px;
-    }
+            .header h1 {
+                margin: 0;
+            }
 
-    .testimonial-section form input, .testimonial-section form textarea {
-        width: 100%;
-        padding: 10px;
-        font-size: 18px;
-        margin-bottom: 20px;
-        border-radius: 5px;
-        border: none;
-    }
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-    .testimonial-section form input[type="submit"] {
-        background-color: #FFC107;
-        color: #fff;
-        font-size: 20px;
-        padding: 10px 20px;
-        border-radius: 5px;
-        border: none;
-        cursor: pointer;
-    }
-</style>
+        .menu-item {
+            width: 300px;
+            margin: 20px;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 2px 2px 8px #ccc;
+        }
+
+            .menu-item h3 {
+                color: #333;
+            }
+    </style>
+    <title>Delicious Restaurant</title>
 </head>
 <body>
-    <div class="testimonial-section">
-        <h1>Testimonials</h1>
-        <p>Here's what our customers have to say about our restaurants!</p>
-        @foreach (var testimonial in testimonials)
-        {
-            <div>
-                <p>"@testimonial.Comment"</p>
-                <p>- @testimonial.Name</p>
-            </div>
-        }
-        <form>
-            <input type="text" placeholder="Name" />
-            <input type="text" placeholder="Phone Number" />
-            <input type="email" placeholder="Email" />
-            <textarea placeholder="Your Testimonial"></textarea>
-            <input type="submit" value="Submit Testimonial" />
-        </form>
+    <div class="header">
+        <h1>Deli</h1>
     </div>
+    <div class="container">
+        <h1>Testimonials from Customers</h1>
+        <div class="menu">
+            <div class="menu-item">
+                <h3>Henry</h3>
+                <h3>Chinese Restaurant</h3>
+                <p>That place was amazing and the food was fantastic.Thanks to AA Booking i was able to get my table booked in no time</p>
+            </div>
+            <div class="menu-item">
+                <h3>Mei Mei</h3>
+                <h3>Italian Restaurant</h3>
+                <p>Wow...What a meal i had at the Italian Restaurant.Thank you AA Booking, I will definately use this site again in future .</p>
+            </div>
+            <div class="menu-item">
+                <h3>John</h3>
+                <h3>Italian Restaurant</h3>
+                <p>The food was amazingg and huge credit to AA Booking for getting my table booked so fast</p>
+            </div>
+            <div class="menu-item">
+                <h3>Adam</h3>
+                <h3>Mexican Restaurant</h3>
+                <p>Thank you AA Booking, my wife had an amazing time at the restaurant.</p>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
-@code {
-private List<Testimonial> testimonials;
-    protected override async Task OnInitializedAsync()
-    {
-        // fetch testimonials data from the database or other source here
-        testimonials = new List<Testimonial>
-    {
-        new Testimonial { Name = "John", Comment = "I had an amazing experience at the Italian restaurant. The food was delicious and the service was excellent!" },
-        new Testimonial { Name = "Jane", Comment = "The Mexican restaurant had the best margaritas I've ever had. I will definitely be coming back soon!" },
-        new Testimonial { Name = "Bob", Comment = "The Chinese restaurant had a great atmosphere and the staff were very friendly. I would recommend it to anyone!" },
-    };
-    }
-
-    private class Test
