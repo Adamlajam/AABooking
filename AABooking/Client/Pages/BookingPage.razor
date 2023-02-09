@@ -1,4 +1,32 @@
-﻿@page "/BookingPage"
+﻿using System;
+using System.Data.SqlClient;
+
+public class BookingController {
+
+    public void SubmitBooking(string selectedRestaurant, string selectedTable, DateTime selectedTime, int customerID, int reservationID) {
+        string connectionString = "Your database connection string";
+
+        using (SqlConnection connection = new SqlConnection(connectionString)) {
+            connection.Open();
+
+            string sql = "INSERT INTO dbo.Reservations (CustomerID, ReservationID, Restaurant, TableNumber, ReservationTime) " +
+                         "VALUES (@customerID, @reservationID, @selectedRestaurant, @selectedTable, @selectedTime)";
+
+            using (SqlCommand command = new SqlCommand(sql, connection)) {
+                command.Parameters.AddWithValue("@customerID", customerID);
+                command.Parameters.AddWithValue("@reservationID", reservationID);
+                command.Parameters.AddWithValue("@selectedRestaurant", selectedRestaurant);
+                command.Parameters.AddWithValue("@selectedTable", selectedTable);
+                command.Parameters.AddWithValue("@selectedTime", selectedTime);
+
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+}
+
+
+@page "/BookingPage"
 <!DOCTYPE html>
 <html>
 <head>
