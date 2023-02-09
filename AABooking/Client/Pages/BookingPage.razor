@@ -60,7 +60,8 @@
     </style>
 </head>
 <body>
-    <form method="post">
+
+      <form method="post" action="/BookingConfirmation">
         <h1>Reserve a Table</h1>
         <div>
             <label for="restaurantList">Select a restaurant:</label>
@@ -68,6 +69,12 @@
                 <option value="restaurant1">Italian Restaurant</option>
                 <option value="restaurant2">Mexican Restaurant</option>
                 <option value="restaurant3">Chinese Restaurant</option>
+            </select>
+            <label for="tableList">Select a Table:</label>
+            <select id="tableList" name="SelectedTable">
+                <option value="Table1">1</option>
+                <option value="Table2">2</option>
+                <option value="table3">3</option>
             </select>
         </div>
         <div>
@@ -77,13 +84,18 @@
         <div>
             <input type="submit" value="Submit">
         </div>
-    </form>
-    <h2>Reservation Details:</h2>
-    <p>Restaurant: @SelectedRestaurant</p>
-    <p>Reservation Time: @SelectedTime.ToString("yyyy-MM-ddTHH:mm")</p>
+        <div>
+            <input type="hidden" name="selectedRestaurant" value="@SelectedRestaurant">
+            <input type="hidden" name="selectedTable" value="@SelectedTable">
+            <input type="hidden" name="selectedTime" value="@SelectedTime.ToString("yyyy-MM-ddTHH:mm")">
+        </div>
+        </form>
+    
 </body>
 </html>
+
 @functions {
     public string SelectedRestaurant { get; set; }
+    public string SelectedTable { get; set; }
     public DateTime SelectedTime { get; set; }
 }
