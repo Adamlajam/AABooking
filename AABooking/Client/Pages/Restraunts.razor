@@ -1,78 +1,87 @@
 ﻿@page "/Restaurants"
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Restaurants</title>
     <style>
-      .restaurant-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        width: 100%;
-      }
-      .restaurant {
-        width: 22%;
-        border: 1px solid lightgray;
-        padding: 1rem;
-        text-align: center;
-        margin-bottom: 2rem;
-      }
-      .menu-items {
-        display: none;
-      }
+        body {
+            background-color: #FFC107;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .restaurant-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .restaurant {
+            width: 22%;
+            border: 1px solid lightgray;
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .menu-items {
+            display: none;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <h1>Restaurants</h1>
     <div class="restaurant-list">
-      <div class="restaurant">
-        <h2>Italian Restaurant</h2>
-        <p>
-          <a href="#" onclick="toggleMenu(event)">View Menu</a>
-        </p>
-        <div class="menu-items">
-          <h3>Appetizers</h3>
-          <ul>
-            <li>Bruschetta</li>
-            <li>Calamari</li>
-            <li>Caprese Salad</li>
-          </ul>
-          <h3>Entrees</h3>
-          <ul>
-            <li>Spaghetti Bolognese</li>
-            <li>Lasagna</li>
-            <li>Chicken Parmesan</li>
-          </ul>
-          <h3>Desserts</h3>
-          <ul>
-            <li>Tiramisu</li>
-            <li>Gelato</li>
-            <li>Cannoli</li>
-          </ul>
+        <div class="restaurant">
+            <h2>Italian Restaurant</h2>
+            <p>
+                <a href="#" onclick="toggleMenu(event)">View Menu</a>
+            </p>
+            <div class="menu-items">
+                <h3>Appetizers</h3>
+                <ul>
+                    <li>Bruschetta</li>
+                    <li>Calamari</li>
+                    <li>Caprese Salad</li>
+                </ul>
+                <h3>Entrees</h3>
+                <ul>
+                    <li>Spaghetti Bolognese</li>
+                    <li>Lasagna</li>
+                    <li>Chicken Parmesan</li>
+                </ul>
+                <h3>Desserts</h3>
+                <ul>
+                    <li>Tiramisu</li>
+                    <li>Gelato</li>
+                    <li>Cannoli</li>
+                </ul>
+            </div>
         </div>
-      </div>
-      <div class="restaurant">
-        <h2>Mexican Restaurant</h2>
-        <p>
-          <a href="#" onclick="toggleMenu(event)">View Menu</a>
-        </p>
-        <div class="menu-items">
-          <h3>Appetizers</h3>
-          <ul>
-            <li>Guacamole</li>
-            <li>Queso Fundido</li>
-            <li>Tortilla Chips and Salsa</li>
-          </ul>
-          <h3>Entrees</h3>
-          <ul>
-            <li>Taco Platter</li>
-            <li>Burrito Bowl</li>
-            <li>Enchiladas</li>
-          </ul>
-          <h3>Desserts</h3>
-          <ul>
-            <li>Flan</li>
-            <li>Churros
+        <div class="restaurant">
+            <h2>Mexican Restaurant</h2>
+            <p>
+                <a href="#" onclick="toggleMenu(event)">View Menu</a>
+            </p>
+            <div class="menu-items">
+                <h3>Appetizers</h3>
+                <ul>
+                    <li>Guacamole</li>
+                    <li>Queso Fundido</li>
+                    <li>Tortilla Chips and Salsa</li>
+                </ul>
+                <h3>Entrees</h3>
+                <ul>
+                    <li>Taco Platter</li>
+                    <li>Burrito Bowl</li>
+                    <li>Enchiladas</li>
+                </ul>
+                <h3>Desserts</h3>
+                <ul>
+                    <li>Flan</li>
+                    <li>
+                        Churros
                     </li>
                     <li>Tres Leches Cake</li>
                 </ul>
@@ -107,4 +116,3 @@
     </div>
 </body>
 </html>
-```
