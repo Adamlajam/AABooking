@@ -1,0 +1,87 @@
+﻿@page"/Testimonials"
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Testimonials</title>
+    <style>
+        .testimonial-section {
+            background-color: #FFC107;
+            padding: 50px;
+            text-align: center;
+        }
+        .testimonial-section h1 {
+        font-size: 36px;
+        color: #333;
+        margin-bottom: 40px;
+    }
+
+    .testimonial-section p {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 40px;
+    }
+
+    .testimonial-section form {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #333;
+        margin-top: 40px;
+    }
+
+    .testimonial-section form input, .testimonial-section form textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    .testimonial-section form input[type="submit"] {
+        background-color: #FFC107;
+        color: #fff;
+        font-size: 20px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <div class="testimonial-section">
+        <h1>Testimonials</h1>
+        <p>Here's what our customers have to say about our restaurants!</p>
+        @foreach (var testimonial in testimonials)
+        {
+            <div>
+                <p>"@testimonial.Comment"</p>
+                <p>- @testimonial.Name</p>
+            </div>
+        }
+        <form>
+            <input type="text" placeholder="Name" />
+            <input type="text" placeholder="Phone Number" />
+            <input type="email" placeholder="Email" />
+            <textarea placeholder="Your Testimonial"></textarea>
+            <input type="submit" value="Submit Testimonial" />
+        </form>
+    </div>
+</body>
+</html>
+@code {
+private List<Testimonial> testimonials;
+    protected override async Task OnInitializedAsync()
+    {
+        // fetch testimonials data from the database or other source here
+        testimonials = new List<Testimonial>
+    {
+        new Testimonial { Name = "John", Comment = "I had an amazing experience at the Italian restaurant. The food was delicious and the service was excellent!" },
+        new Testimonial { Name = "Jane", Comment = "The Mexican restaurant had the best margaritas I've ever had. I will definitely be coming back soon!" },
+        new Testimonial { Name = "Bob", Comment = "The Chinese restaurant had a great atmosphere and the staff were very friendly. I would recommend it to anyone!" },
+    };
+    }
+
+    private class Test
