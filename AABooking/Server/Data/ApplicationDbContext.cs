@@ -56,9 +56,7 @@ namespace AABooking.Server.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new RestaurantsSeedConfiguration());
             modelBuilder.ApplyConfiguration(new ReservationsSeedConfiguration());
-            modelBuilder.ApplyConfiguration(new CustomerSeedConfiguration());
-            modelBuilder.ApplyConfiguration(new TableSeedConfiguration());
-            modelBuilder.ApplyConfiguration(new StaffSeedConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomerSeedConfiguration());     
             modelBuilder.ApplyConfiguration(new UserRoleSeedConfiguration());
             modelBuilder.ApplyConfiguration(new UserSeedConfiguration());
             modelBuilder.ApplyConfiguration(new RoleSeedConfiguration());
