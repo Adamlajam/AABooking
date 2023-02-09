@@ -1,9 +1,28 @@
-﻿@page "/BookingPage"
+﻿@page "/bookingpage"
 
-<h1>Booking Page</h1>
-<BookingPageComponent/>
-This is the booking page
-@code {
-    
+<h1>Reserve a Table</h1>
+<form method="post">
+    <div>
+        <label for="restaurantList">Select a restaurant:</label>
+        <select id="restaurantList" name="selectedRestaurant">
+            <option value="restaurant1">Black</option>
+            <option value="restaurant2">Blue</option>
+            <option value="restaurant3">Red</option>
+        </select>
+    </div>
+    <div>
+        <label for="reservationTime">Reservation time:</label>
+        <input type="datetime-local" id="reservationTime" name="selectedTime">
+    </div>
+    <div>
+        <input type="submit" value="Submit">
+    </div>
+</form>
+<h2>Reservation Details:</h2>
+<p>Restaurant: @SelectedRestaurant</p>
+<p>Reservation Time: @SelectedTime.ToString("yyyy-MM-ddTHH:mm")</p>
+@functions {
+public string SelectedRestaurant { get; set; }
+public DateTime SelectedTime { get; set; }
     
 }

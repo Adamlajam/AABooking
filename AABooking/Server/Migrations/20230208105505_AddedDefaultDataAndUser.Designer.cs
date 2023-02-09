@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace AABooking.Server.Data.Migrations
+namespace AABooking.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230208024647_AddedDefaultDataAndUser")]
+    [Migration("20230208105505_AddedDefaultDataAndUser")]
     partial class AddedDefaultDataAndUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -96,7 +96,7 @@ namespace AABooking.Server.Data.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "874ea55d-3943-4b2f-9f4e-c7adde0ea1e4",
+                            ConcurrencyStamp = "008814e0-28d2-4833-ad00-f6723d236220",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -104,9 +104,9 @@ namespace AABooking.Server.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEN6NQVsCDD3W3Vq0tq1fKqq79T4uqa5NLqC8v0iBb7AcvwiVDXtN4Hpp6F0FiwWOA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEITnnnSg0DImo0oZ6SXpCJuZp+ygvX0+jMxm74k2mDDWZb6tKTqNj+1T+h6h0CksHA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6c33c40c-503c-4273-a784-f05934c85c03",
+                            SecurityStamp = "79022c90-e49e-4531-b007-76fb19c5c290",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -131,15 +131,10 @@ namespace AABooking.Server.Data.Migrations
                     b.Property<int>("ReservationId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RestaurantResId")
-                        .HasColumnType("int");
-
                     b.HasKey("CusId");
 
                     b.HasIndex("ReservationId")
                         .IsUnique();
-
-                    b.HasIndex("RestaurantResId");
 
                     b.ToTable("Customers");
 
@@ -149,24 +144,24 @@ namespace AABooking.Server.Data.Migrations
                             CusId = 1,
                             Address = "111a",
                             Contact = "91145295",
-                            ResId = 0,
-                            ReservationId = 0
+                            ResId = 1,
+                            ReservationId = 1
                         },
                         new
                         {
                             CusId = 2,
                             Address = "111a",
                             Contact = "90461363",
-                            ResId = 0,
-                            ReservationId = 0
+                            ResId = 2,
+                            ReservationId = 2
                         },
                         new
                         {
                             CusId = 3,
                             Address = "111a",
                             Contact = "97346471",
-                            ResId = 0,
-                            ReservationId = 0
+                            ResId = 3,
+                            ReservationId = 3
                         });
                 });
 
@@ -189,7 +184,7 @@ namespace AABooking.Server.Data.Migrations
                     b.Property<DateTime>("ReservationTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("RestaurantResId")
+                    b.Property<int?>("RestaurantsResId")
                         .HasColumnType("int");
 
                     b.Property<int>("TableId")
@@ -197,7 +192,7 @@ namespace AABooking.Server.Data.Migrations
 
                     b.HasKey("ReservationId");
 
-                    b.HasIndex("RestaurantResId");
+                    b.HasIndex("RestaurantsResId");
 
                     b.HasIndex("TableId")
                         .IsUnique();
@@ -208,29 +203,29 @@ namespace AABooking.Server.Data.Migrations
                         new
                         {
                             ReservationId = 1,
-                            CusId = 0,
-                            ResId = 0,
-                            ReservationDate = new DateTime(2023, 2, 8, 10, 46, 47, 342, DateTimeKind.Local).AddTicks(5226),
-                            ReservationTime = new DateTime(2023, 2, 8, 10, 46, 47, 341, DateTimeKind.Local).AddTicks(5534),
-                            TableId = 0
+                            CusId = 1,
+                            ResId = 1,
+                            ReservationDate = new DateTime(2023, 2, 8, 18, 55, 4, 342, DateTimeKind.Local).AddTicks(9039),
+                            ReservationTime = new DateTime(2023, 2, 8, 18, 55, 4, 341, DateTimeKind.Local).AddTicks(8965),
+                            TableId = 1
                         },
                         new
                         {
                             ReservationId = 2,
-                            CusId = 0,
-                            ResId = 0,
-                            ReservationDate = new DateTime(2023, 2, 8, 10, 46, 47, 342, DateTimeKind.Local).AddTicks(5628),
-                            ReservationTime = new DateTime(2023, 2, 8, 10, 46, 47, 342, DateTimeKind.Local).AddTicks(5621),
-                            TableId = 0
+                            CusId = 2,
+                            ResId = 2,
+                            ReservationDate = new DateTime(2023, 2, 8, 18, 55, 4, 343, DateTimeKind.Local).AddTicks(311),
+                            ReservationTime = new DateTime(2023, 2, 8, 18, 55, 4, 343, DateTimeKind.Local).AddTicks(305),
+                            TableId = 2
                         },
                         new
                         {
                             ReservationId = 3,
-                            CusId = 0,
-                            ResId = 0,
-                            ReservationDate = new DateTime(2023, 2, 8, 10, 46, 47, 342, DateTimeKind.Local).AddTicks(5631),
-                            ReservationTime = new DateTime(2023, 2, 8, 10, 46, 47, 342, DateTimeKind.Local).AddTicks(5630),
-                            TableId = 0
+                            CusId = 3,
+                            ResId = 3,
+                            ReservationDate = new DateTime(2023, 2, 8, 18, 55, 4, 343, DateTimeKind.Local).AddTicks(315),
+                            ReservationTime = new DateTime(2023, 2, 8, 18, 55, 4, 343, DateTimeKind.Local).AddTicks(313),
+                            TableId = 3
                         });
                 });
 
@@ -247,10 +242,16 @@ namespace AABooking.Server.Data.Migrations
                     b.Property<string>("Contact")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("CusId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ResName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ResId");
+
+                    b.HasIndex("CusId")
+                        .IsUnique();
 
                     b.ToTable("Restaurants");
 
@@ -260,6 +261,7 @@ namespace AABooking.Server.Data.Migrations
                             ResId = 1,
                             Address = "111",
                             Contact = "91145295",
+                            CusId = 1,
                             ResName = "Black"
                         },
                         new
@@ -267,6 +269,7 @@ namespace AABooking.Server.Data.Migrations
                             ResId = 2,
                             Address = "112",
                             Contact = "91144444",
+                            CusId = 2,
                             ResName = "Blue"
                         },
                         new
@@ -274,6 +277,7 @@ namespace AABooking.Server.Data.Migrations
                             ResId = 3,
                             Address = "113",
                             Contact = "99999999",
+                            CusId = 3,
                             ResName = "Red"
                         });
                 });
@@ -356,20 +360,20 @@ namespace AABooking.Server.Data.Migrations
                         new
                         {
                             TableId = 1,
-                            ResId = 0,
-                            ReservationId = 0
+                            ResId = 1,
+                            ReservationId = 1
                         },
                         new
                         {
                             TableId = 2,
-                            ResId = 0,
-                            ReservationId = 0
+                            ResId = 2,
+                            ReservationId = 2
                         },
                         new
                         {
                             TableId = 3,
-                            ResId = 0,
-                            ReservationId = 0
+                            ResId = 3,
+                            ReservationId = 3
                         });
                 });
 
@@ -506,14 +510,14 @@ namespace AABooking.Server.Data.Migrations
                         new
                         {
                             Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
-                            ConcurrencyStamp = "95f92843-da82-4322-82d5-4dd96f6fd855",
+                            ConcurrencyStamp = "0121410e-83f6-4faf-820c-34b7395957c8",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
-                            ConcurrencyStamp = "f047b95f-3f7a-4c02-97bd-58237203de8a",
+                            ConcurrencyStamp = "c85e04fb-d98a-4431-b820-141752e225ed",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -642,20 +646,14 @@ namespace AABooking.Server.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AABooking.Shared.Domain.Restaurant", "Restaurant")
-                        .WithMany()
-                        .HasForeignKey("RestaurantResId");
-
                     b.Navigation("Reservations");
-
-                    b.Navigation("Restaurant");
                 });
 
             modelBuilder.Entity("AABooking.Shared.Domain.Reservations", b =>
                 {
-                    b.HasOne("AABooking.Shared.Domain.Restaurant", "Restaurant")
+                    b.HasOne("AABooking.Shared.Domain.Restaurant", "Restaurants")
                         .WithMany()
-                        .HasForeignKey("RestaurantResId");
+                        .HasForeignKey("RestaurantsResId");
 
                     b.HasOne("AABooking.Shared.Domain.Table", "Table")
                         .WithOne("Reservations")
@@ -663,9 +661,20 @@ namespace AABooking.Server.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Restaurant");
+                    b.Navigation("Restaurants");
 
                     b.Navigation("Table");
+                });
+
+            modelBuilder.Entity("AABooking.Shared.Domain.Restaurant", b =>
+                {
+                    b.HasOne("AABooking.Shared.Domain.Customer", "Customer")
+                        .WithOne("Restaurants")
+                        .HasForeignKey("AABooking.Shared.Domain.Restaurant", "CusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("AABooking.Shared.Domain.Staff", b =>
@@ -735,6 +744,11 @@ namespace AABooking.Server.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("AABooking.Shared.Domain.Customer", b =>
+                {
+                    b.Navigation("Restaurants");
                 });
 
             modelBuilder.Entity("AABooking.Shared.Domain.Reservations", b =>
