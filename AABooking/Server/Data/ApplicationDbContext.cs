@@ -6,11 +6,14 @@ using IdentityServer4.EntityFramework.Options;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Options;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Table = AABooking.Shared.Domain.Table;
 
 namespace AABooking.Server.Data
 {
@@ -21,11 +24,11 @@ namespace AABooking.Server.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
-            public DbSet<Customer> Customers { get; set; }
-            public DbSet<Reservations> Reservations { get; set; }
-            public DbSet<Restaurant> Restaurants { get; set; }
-            public DbSet<Table> Tables { get; set; }
-            public DbSet<Staff> Staffs { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Reservations> Reservations { get; set; }
+        public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<Table> Tables { get; set; }
+        public DbSet<Staff> Staffs { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Reservations>()
@@ -47,8 +50,8 @@ namespace AABooking.Server.Data
             modelBuilder.Entity<Customer>().HasKey(c => c.CusId);
             modelBuilder.Entity<Reservations>().HasKey(c => c.ReservationId);
             modelBuilder.Entity<Restaurant>().HasKey(c => c.ResId);
-                      
-            
+
+
 
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new RestaurantsSeedConfiguration());
@@ -63,4 +66,3 @@ namespace AABooking.Server.Data
 
     }
 }
-

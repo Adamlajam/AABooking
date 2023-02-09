@@ -17,7 +17,7 @@ namespace AABooking.Server.Configurations.Entities
                     TableId = 1,
                     ResId = 1,
                     ReservationId = 1,
-                    
+
 
                 },
                 new Table
@@ -25,14 +25,14 @@ namespace AABooking.Server.Configurations.Entities
                     TableId = 2,
                     ResId = 2,
                     ReservationId = 2,
-                    
+
                 },
                new Table
                {
                    TableId = 3,
                    ResId = 3,
                    ReservationId = 3,
-                   
+
                });
 
         }
