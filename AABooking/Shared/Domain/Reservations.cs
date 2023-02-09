@@ -12,10 +12,10 @@ namespace AABooking.Shared.Domain
         public DateTime ReservationTime { get; set; }
         public DateTime ReservationDate { get; set; }
         public int ResId { get; set; }
-        public virtual Restaurant Restaurant { get; set; }
+        public Restaurant Restaurants { get; set; }
         public int CusId { get; set; }
-        public virtual Customer Customer { get; set; }
+        public Customer Customer { get; set; }
         public int TableId { get; set; }
-        public virtual Table Table { get; set; }
+        public Table Table { get; set; }
     }
 }

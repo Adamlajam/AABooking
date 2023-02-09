@@ -13,6 +13,6 @@ namespace AABooking.Shared.Domain
         public string Address { get; set; }
         public string Role { get; set; }
         public int ResId { get; set; }
-        public virtual Restaurant Restaurant { get; set; }
+        public Restaurant Restaurant { get; set; }
     }
 }

@@ -12,5 +12,7 @@ namespace AABooking.Shared.Domain
         public string ResName { get; set; }
         public string Address { get; set; }
         public string Contact { get; set; }
+        public int CusId { get; set; }
+        public Customer Customer { get; set; }
     }
 }

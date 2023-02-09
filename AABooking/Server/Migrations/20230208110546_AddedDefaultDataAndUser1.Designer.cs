@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace AABooking.Server.Data.Migrations
+namespace AABooking.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230208022519_AddApplicationTables1")]
-    partial class AddApplicationTables1
+    [Migration("20230208110546_AddedDefaultDataAndUser1")]
+    partial class AddedDefaultDataAndUser1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -90,6 +90,26 @@ namespace AABooking.Server.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "53762d38-1742-45fb-b43a-7b3ab99a51ed",
+                            Email = "admin@localhost.com",
+                            EmailConfirmed = false,
+                            FirstName = "Admin",
+                            LastName = "User",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@LOCALHOST.COM",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIgJQbwAkFv+WanDOdBxakQgM9xSrmc8GZRDa7S/EbF+fwFhS8uBiMnGTT86dcd09w==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "c4177264-2b21-4fc0-b106-d5ecbfc6576d",
+                            TwoFactorEnabled = false,
+                            UserName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("AABooking.Shared.Domain.Customer", b =>
@@ -111,17 +131,38 @@ namespace AABooking.Server.Data.Migrations
                     b.Property<int>("ReservationId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RestaurantResId")
-                        .HasColumnType("int");
-
                     b.HasKey("CusId");
 
                     b.HasIndex("ReservationId")
                         .IsUnique();
 
-                    b.HasIndex("RestaurantResId");
-
                     b.ToTable("Customers");
+
+                    b.HasData(
+                        new
+                        {
+                            CusId = 1,
+                            Address = "111a",
+                            Contact = "91145295",
+                            ResId = 1,
+                            ReservationId = 1
+                        },
+                        new
+                        {
+                            CusId = 2,
+                            Address = "111a",
+                            Contact = "90461363",
+                            ResId = 2,
+                            ReservationId = 2
+                        },
+                        new
+                        {
+                            CusId = 3,
+                            Address = "111a",
+                            Contact = "97346471",
+                            ResId = 3,
+                            ReservationId = 3
+                        });
                 });
 
             modelBuilder.Entity("AABooking.Shared.Domain.Reservations", b =>
@@ -143,7 +184,7 @@ namespace AABooking.Server.Data.Migrations
                     b.Property<DateTime>("ReservationTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("RestaurantResId")
+                    b.Property<int?>("RestaurantsResId")
                         .HasColumnType("int");
 
                     b.Property<int>("TableId")
@@ -151,12 +192,41 @@ namespace AABooking.Server.Data.Migrations
 
                     b.HasKey("ReservationId");
 
-                    b.HasIndex("RestaurantResId");
+                    b.HasIndex("RestaurantsResId");
 
                     b.HasIndex("TableId")
                         .IsUnique();
 
                     b.ToTable("Reservations");
+
+                    b.HasData(
+                        new
+                        {
+                            ReservationId = 1,
+                            CusId = 1,
+                            ResId = 1,
+                            ReservationDate = new DateTime(2023, 2, 8, 19, 5, 45, 724, DateTimeKind.Local).AddTicks(7673),
+                            ReservationTime = new DateTime(2023, 2, 8, 19, 5, 45, 723, DateTimeKind.Local).AddTicks(3043),
+                            TableId = 1
+                        },
+                        new
+                        {
+                            ReservationId = 2,
+                            CusId = 2,
+                            ResId = 2,
+                            ReservationDate = new DateTime(2023, 2, 8, 19, 5, 45, 724, DateTimeKind.Local).AddTicks(9591),
+                            ReservationTime = new DateTime(2023, 2, 8, 19, 5, 45, 724, DateTimeKind.Local).AddTicks(9582),
+                            TableId = 2
+                        },
+                        new
+                        {
+                            ReservationId = 3,
+                            CusId = 3,
+                            ResId = 3,
+                            ReservationDate = new DateTime(2023, 2, 8, 19, 5, 45, 724, DateTimeKind.Local).AddTicks(9596),
+                            ReservationTime = new DateTime(2023, 2, 8, 19, 5, 45, 724, DateTimeKind.Local).AddTicks(9594),
+                            TableId = 3
+                        });
                 });
 
             modelBuilder.Entity("AABooking.Shared.Domain.Restaurant", b =>
@@ -172,10 +242,16 @@ namespace AABooking.Server.Data.Migrations
                     b.Property<string>("Contact")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("CusId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ResName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ResId");
+
+                    b.HasIndex("CusId")
+                        .IsUnique();
 
                     b.ToTable("Restaurants");
 
@@ -185,6 +261,7 @@ namespace AABooking.Server.Data.Migrations
                             ResId = 1,
                             Address = "111",
                             Contact = "91145295",
+                            CusId = 1,
                             ResName = "Black"
                         },
                         new
@@ -192,6 +269,7 @@ namespace AABooking.Server.Data.Migrations
                             ResId = 2,
                             Address = "112",
                             Contact = "91144444",
+                            CusId = 2,
                             ResName = "Blue"
                         },
                         new
@@ -199,6 +277,7 @@ namespace AABooking.Server.Data.Migrations
                             ResId = 3,
                             Address = "113",
                             Contact = "99999999",
+                            CusId = 3,
                             ResName = "Red"
                         });
                 });
@@ -230,6 +309,29 @@ namespace AABooking.Server.Data.Migrations
                     b.HasIndex("RestaurantResId");
 
                     b.ToTable("Staffs");
+
+                    b.HasData(
+                        new
+                        {
+                            StaffId = 1,
+                            Address = "111a",
+                            Contact = "11111111",
+                            ResId = 0
+                        },
+                        new
+                        {
+                            StaffId = 2,
+                            Address = "222a",
+                            Contact = "22222222",
+                            ResId = 0
+                        },
+                        new
+                        {
+                            StaffId = 3,
+                            Address = "333a",
+                            Contact = "33333333",
+                            ResId = 0
+                        });
                 });
 
             modelBuilder.Entity("AABooking.Shared.Domain.Table", b =>
@@ -253,6 +355,26 @@ namespace AABooking.Server.Data.Migrations
                     b.HasIndex("RestaurantResId");
 
                     b.ToTable("Tables");
+
+                    b.HasData(
+                        new
+                        {
+                            TableId = 1,
+                            ResId = 1,
+                            ReservationId = 1
+                        },
+                        new
+                        {
+                            TableId = 2,
+                            ResId = 2,
+                            ReservationId = 2
+                        },
+                        new
+                        {
+                            TableId = 3,
+                            ResId = 3,
+                            ReservationId = 3
+                        });
                 });
 
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.DeviceFlowCodes", b =>
@@ -383,6 +505,22 @@ namespace AABooking.Server.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
+                            ConcurrencyStamp = "412f11d7-fc20-43e9-9c87-df0592acba5c",
+                            Name = "Administrator",
+                            NormalizedName = "ADMINISTRATOR"
+                        },
+                        new
+                        {
+                            Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
+                            ConcurrencyStamp = "5e844c6b-b78e-4d42-b482-f5dac4f120df",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -470,6 +608,13 @@ namespace AABooking.Server.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "3781efa7-66dc-47f0-860f-e506d04102e4",
+                            RoleId = "ad2bcf0c-20db-474f-8407-5a6b159518ba"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -501,20 +646,14 @@ namespace AABooking.Server.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AABooking.Shared.Domain.Restaurant", "Restaurant")
-                        .WithMany()
-                        .HasForeignKey("RestaurantResId");
-
                     b.Navigation("Reservations");
-
-                    b.Navigation("Restaurant");
                 });
 
             modelBuilder.Entity("AABooking.Shared.Domain.Reservations", b =>
                 {
-                    b.HasOne("AABooking.Shared.Domain.Restaurant", "Restaurant")
+                    b.HasOne("AABooking.Shared.Domain.Restaurant", "Restaurants")
                         .WithMany()
-                        .HasForeignKey("RestaurantResId");
+                        .HasForeignKey("RestaurantsResId");
 
                     b.HasOne("AABooking.Shared.Domain.Table", "Table")
                         .WithOne("Reservations")
@@ -522,9 +661,20 @@ namespace AABooking.Server.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Restaurant");
+                    b.Navigation("Restaurants");
 
                     b.Navigation("Table");
+                });
+
+            modelBuilder.Entity("AABooking.Shared.Domain.Restaurant", b =>
+                {
+                    b.HasOne("AABooking.Shared.Domain.Customer", "Customer")
+                        .WithOne("Restaurants")
+                        .HasForeignKey("AABooking.Shared.Domain.Restaurant", "CusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("AABooking.Shared.Domain.Staff", b =>
@@ -594,6 +744,11 @@ namespace AABooking.Server.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("AABooking.Shared.Domain.Customer", b =>
+                {
+                    b.Navigation("Restaurants");
                 });
 
             modelBuilder.Entity("AABooking.Shared.Domain.Reservations", b =>

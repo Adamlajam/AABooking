@@ -32,6 +32,18 @@ namespace AABooking.Server.Data
                 .HasOne(r => r.Customer)
                 .WithOne(c => c.Reservations)
                 .HasForeignKey<Customer>(c => c.ReservationId);
+
+            modelBuilder.Entity<Customer>()
+                .HasOne(c => c.Restaurants)
+                .WithOne(r => r.Customer)
+                .HasForeignKey<Customer>(r => r.CusId);
+
+            modelBuilder.Entity<Restaurant>()
+                .HasOne(r => r.Customer)
+                .WithOne(c => c.Restaurants)
+                .HasForeignKey<Restaurant>(r => r.CusId);
+
+
             modelBuilder.Entity<Customer>().HasKey(c => c.CusId);
             modelBuilder.Entity<Reservations>().HasKey(c => c.ReservationId);
             modelBuilder.Entity<Restaurant>().HasKey(c => c.ResId);
@@ -39,7 +51,7 @@ namespace AABooking.Server.Data
             
 
             base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfiguration(new RestaurantSeedConfiguration());
+            modelBuilder.ApplyConfiguration(new RestaurantsSeedConfiguration());
             modelBuilder.ApplyConfiguration(new ReservationsSeedConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerSeedConfiguration());
             modelBuilder.ApplyConfiguration(new TableSeedConfiguration());

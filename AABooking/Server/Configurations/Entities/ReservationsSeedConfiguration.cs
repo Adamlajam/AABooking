@@ -1,9 +1,7 @@
 ﻿using AABooking.Shared.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Drawing;
 using System;
-using static IdentityServer4.Models.IdentityResources;
 
 namespace AABooking.Server.Configurations.Entities
 {
@@ -11,12 +9,15 @@ namespace AABooking.Server.Configurations.Entities
     {
         public void Configure(EntityTypeBuilder<Reservations> builder)
         {
-            _ = builder.HasData(
+            builder.HasData(
                 new Reservations
                 {
                     ReservationId = 1,
                     ReservationTime = DateTime.Now,
                     ReservationDate = DateTime.Now,
+                    ResId = 1,
+                    CusId = 1,
+                    TableId = 1
 
                 },
                 new Reservations
@@ -24,6 +25,9 @@ namespace AABooking.Server.Configurations.Entities
                     ReservationId = 2,
                     ReservationTime = DateTime.Now,
                     ReservationDate = DateTime.Now,
+                    ResId = 2,
+                    CusId = 2,
+                    TableId = 2
 
                 },
                new Reservations
@@ -31,6 +35,9 @@ namespace AABooking.Server.Configurations.Entities
                    ReservationId = 3,
                    ReservationTime = DateTime.Now,
                    ReservationDate = DateTime.Now,
+                   ResId = 3,
+                   CusId = 3,
+                   TableId = 3
 
                });
 
@@ -38,5 +45,5 @@ namespace AABooking.Server.Configurations.Entities
     }
 }
 
-       
-    
+
+

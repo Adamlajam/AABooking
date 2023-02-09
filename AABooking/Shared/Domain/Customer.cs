@@ -12,8 +12,8 @@ namespace AABooking.Shared.Domain
         public string Contact { get; set; }
         public string Address { get; set; }
         public int ResId { get; set; }
-        public virtual Restaurant Restaurant { get; set; }
+        public Restaurant Restaurants { get; set; }
         public int ReservationId { get; set; }
-        public virtual Reservations Reservations { get; set; }
+        public Reservations Reservations { get; set; }
     }
 }

@@ -15,21 +15,24 @@ namespace AABooking.Server.Configurations.Entities
                 new Table
                 {
                     TableId = 1,
-                    ReservationId = 1,
                     ResId = 1,
+                    ReservationId = 1,
+                    
 
                 },
                 new Table
                 {
                     TableId = 2,
-                    ReservationId = 2,
                     ResId = 2,
+                    ReservationId = 2,
+                    
                 },
                new Table
                {
                    TableId = 3,
-                   ReservationId = 3,
                    ResId = 3,
+                   ReservationId = 3,
+                   
                });
 
         }
