@@ -1,0 +1,3 @@
+﻿SET IDENTITY_INSERT [dbo].[Reservations] ON
+INSERT INTO [dbo].[Reservations] ([ReservationId], [ReservationTime], [ReservationDate], [ResId], [RestaurantResId], [CusId], [TableId]) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+SET IDENTITY_INSERT [dbo].[Reservations] OFF
