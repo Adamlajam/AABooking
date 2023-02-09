@@ -2,6 +2,13 @@
 <html>
 
 <head>
+    <script>
+        function toggleMenu(event) {
+            event.preventDefault();
+            let menu = event.target.parentNode.nextElementSibling;
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>AABooking</title>

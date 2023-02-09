@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@page "/Restaurants"
+<!DOCTYPE html>
 <html>
   <head>
     <title>Restaurants</title>
@@ -20,17 +21,6 @@
         display: none;
       }
     </style>
-    <script>
-      function toggleMenu(event) {
-        event.preventDefault();
-        let menuItems = event.target.parentNode.querySelector(".menu-items");
-        if (menuItems.style.display === "none") {
-          menuItems.style.display = "block";
-        } else {
-          menuItems.style.display = "none";
-        }
-      }
-    </script>
   </head>
   <body>
     <h1>Restaurants</h1>
