@@ -1,5 +1,6 @@
-﻿@page "/StaffRoles"
-@using Staff
+﻿@page "/Staff Roles"
+
+@using AABooking.Shared.Domain
 @using System.Collections.Generic
 
 <!DOCTYPE html>
@@ -38,7 +39,7 @@
                 <td>@staff.Address</td>
                 <td>@staff.Role</td>
                 <td>
-                    <a asp-page="./EditRole" asp-route-id="@staff.Id">Edit Role</a>
+                    <a asp-page="./EditRole" asp-route-id="@staff.StaffId">Edit Role</a>
                 </td>
             </tr>
         }
@@ -54,9 +55,9 @@
         // fetch staffList data from the database or other source here
         staffList = new List<Staff>
         {
-            new Staff { Id = 1, Name = "John", Restaurant = "Italian Restaurant", Contact = "555-555-5555", Address = "123 Main St", Role = "Manager" },
-            new Staff { Id = 2, Name = "Jane ", Restaurant = "Mexican Restaurant", Contact = "555-555-5556", Address = "124 Main St", Role = "Chef" },
-            new Staff { Id = 3, Name = "Bob Smith", Restaurant = "Chinese Restaurant", Contact = "555-555-5557", Address = "125 Main St", Role = "Server" },
+            new Staff { StaffId = 1, Name = "John", Restaurant = "Italian Restaurant", Contact = "555-555-5555", Address = "123 Main St", Role = "Manager" },
+            new Staff { StaffId = 2, Name = "Jane ", Restaurant = "Mexican Restaurant", Contact = "555-555-5556", Address = "124 Main St", Role = "Chef" },
+            new Staff { StaffId = 3, Name = "Bob Smith", Restaurant = "Chinese Restaurant", Contact = "555-555-5557", Address = "125 Main St", Role = "Server" },
         };
     }
 }

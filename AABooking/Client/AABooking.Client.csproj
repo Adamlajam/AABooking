@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\StaffRoles.razor" />
+    <Content Remove="Pages\Staff Roles.razor" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,15 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\StaffRoles.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Pages\StaffRoles.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Pages\StaffRoles.razor" />
+    <None Include="Pages\Staff Roles.razor" />
   </ItemGroup>
 
 </Project>
