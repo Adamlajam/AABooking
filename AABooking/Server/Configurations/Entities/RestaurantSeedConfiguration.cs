@@ -15,7 +15,7 @@ namespace AABooking.Server.Configurations.Entities
                 new Restaurant
                 {
                     ResId = 1,                
-                    ResName = "Black",
+                    ResName = "Italian Restaurant",
                     Address = "111",
                     Contact = "91145295",
                     CusId= 1,
@@ -23,17 +23,17 @@ namespace AABooking.Server.Configurations.Entities
                 new Restaurant
                     {
                     ResId = 2,
-                    ResName = "Blue",
+                    ResName = "Mexican Restaurant",
                     Address = "112",
-                    Contact = "91144444",
+                    Contact = "97346471",
                     CusId = 2,
                 },
                new Restaurant
                {
                     ResId = 3,
-                    ResName = "Red",
+                    ResName = "Chinese Restaurant",
                     Address = "113",
-                    Contact = "99999999",
+                    Contact = "90461363",
                     CusId = 3,
                });
            
