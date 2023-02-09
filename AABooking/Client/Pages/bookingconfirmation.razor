@@ -1,0 +1,14 @@
+﻿@page "/Bookingconfirmation"
+
+<div style="background-color: #FFC107; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <h1>Booking Confirmation</h1>
+    <div style="background-color: white; padding: 20px; border-radius: 10px;">
+        <p>Thank you for your reservation at @SelectedRestaurant!</p>
+        <p>Your reservation is confirmed for @SelectedTime.ToString("yyyy-MM-ddTHH:mm")</p>
+        <p>We look forward to seeing you!</p>
+    </div>
+</div>
+@functions {
+public string SelectedRestaurant { get; set; }
+public DateTime SelectedTime { get; set; }
+}
