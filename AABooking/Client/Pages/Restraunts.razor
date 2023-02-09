@@ -1,7 +1,146 @@
-﻿@page "/authentication/{action}"
-@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
-<RemoteAuthenticatorView Action="@Action" />
-
-@code{
-    [Parameter] public string Action { get; set; }
-}
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Restaurants</title>
+    <style>
+      .restaurant-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+      }
+      .restaurant {
+        width: 22%;
+        border: 1px solid lightgray;
+        padding: 1rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .menu-items {
+        display: none;
+      }
+    </style>
+    <script>
+      function toggleMenu(event) {
+        event.preventDefault();
+        let menuItems = event.target.parentNode.querySelector(".menu-items");
+        if (menuItems.style.display === "none") {
+          menuItems.style.display = "block";
+        } else {
+          menuItems.style.display = "none";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Restaurants</h1>
+    <div class="restaurant-list">
+      <div class="restaurant">
+        <h2>Italian Restaurant</h2>
+        <p>
+          <a href="#" onclick="toggleMenu(event)">View Menu</a>
+        </p>
+        <div class="menu-items">
+          <h3>Appetizers</h3>
+          <ul>
+            <li>Bruschetta</li>
+            <li>Calamari</li>
+            <li>Caprese Salad</li>
+          </ul>
+          <h3>Entrees</h3>
+          <ul>
+            <li>Spaghetti Bolognese</li>
+            <li>Lasagna</li>
+            <li>Chicken Parmesan</li>
+          </ul>
+          <h3>Desserts</h3>
+          <ul>
+            <li>Tiramisu</li>
+            <li>Gelato</li>
+            <li>Cannoli</li>
+          </ul>
+        </div>
+      </div>
+      <div class="restaurant">
+        <h2>Mexican Restaurant</h2>
+        <p>
+          <a href="#" onclick="toggleMenu(event)">View Menu</a>
+        </p>
+        <div class="menu-items">
+          <h3>Appetizers</h3>
+          <ul>
+            <li>Guacamole</li>
+            <li>Queso Fundido</li>
+            <li>Tortilla Chips and Salsa</li>
+          </ul>
+          <h3>Entrees</h3>
+          <ul>
+            <li>Taco Platter</li>
+            <li>Burrito Bowl</li>
+            <li>Enchiladas</li>
+          </ul>
+          <h3>Desserts</h3>
+          <ul>
+            <li>Flan</li>
+            <li>Churros
+                    </li>
+                    <li>Tres Leches Cake</li>
+                </ul>
+            </div>
+        </div>
+        <div class="restaurant">
+            <h2>Chinese Restaurant</h2>
+            <p>
+                <a href="#" onclick="toggleMenu(event)">View Menu</a>
+            </p>
+            <div class="menu-items">
+                <h3>Appetizers</h3>
+                <ul>
+                    <li>Egg Rolls</li>
+                    <li>Wontons</li>
+                    <li>Crab Rangoon</li>
+                </ul>
+                <h3>Entrees</h3>
+                <ul>
+                    <li>Kung Pao Chicken</li>
+                    <li>Moo Shu Pork</li>
+                    <li>Beef and Broccoli</li>
+                </ul>
+                <h3>Desserts</h3>
+                <ul>
+                    <li>Fried Rice Pudding</li>
+                    <li>Mango Pudding</li>
+                    <li>Red Bean Soup</li>
+                </ul>
+            </div>
+        </div>
+        <div class="restaurant">
+            <h2>Seafood Restaurant</h2>
+            <p>
+                <a href="#" onclick="toggleMenu(event)">View Menu</a>
+            </p>
+            <div class="menu-items">
+                <h3>Appetizers</h3>
+                <ul>
+                    <li>Clam Chowder</li>
+                    <li>Oysters Rockefeller</li>
+                    <li>Shrimp Cocktail</li>
+                </ul>
+                <h3>Entrees</h3>
+                <ul>
+                    <li>Lobster Roll</li>
+                    <li>Crab Cakes</li>
+                    <li>Fish and Chips</li>
+                </ul>
+                <h3>Desserts</h3>
+                <ul>
+                    <li>Key Lime Pie</li>
+                    <li>Coconut Cream Pie</li>
+                    <li>Blueberry Pie</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```
