@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AABooking.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230208105505_AddedDefaultDataAndUser")]
-    partial class AddedDefaultDataAndUser
+    [Migration("20230209034347_202393")]
+    partial class _202393
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -96,7 +96,7 @@ namespace AABooking.Server.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "008814e0-28d2-4833-ad00-f6723d236220",
+                            ConcurrencyStamp = "d3e6d124-01e1-4f20-afcb-36e3baf454e3",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -104,9 +104,9 @@ namespace AABooking.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEITnnnSg0DImo0oZ6SXpCJuZp+ygvX0+jMxm74k2mDDWZb6tKTqNj+1T+h6h0CksHA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHNtlCXG5kTNO3nMIyMnM1DFEk3NxQRsxd2SWCSMqmCIJ2hXUsfepUBt+nj+sNKmVw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "79022c90-e49e-4531-b007-76fb19c5c290",
+                            SecurityStamp = "8fe71dcc-5794-4922-a462-ea2e2b0ab610",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -205,8 +205,8 @@ namespace AABooking.Server.Migrations
                             ReservationId = 1,
                             CusId = 1,
                             ResId = 1,
-                            ReservationDate = new DateTime(2023, 2, 8, 18, 55, 4, 342, DateTimeKind.Local).AddTicks(9039),
-                            ReservationTime = new DateTime(2023, 2, 8, 18, 55, 4, 341, DateTimeKind.Local).AddTicks(8965),
+                            ReservationDate = new DateTime(2023, 2, 9, 11, 43, 47, 299, DateTimeKind.Local).AddTicks(243),
+                            ReservationTime = new DateTime(2023, 2, 9, 11, 43, 47, 298, DateTimeKind.Local).AddTicks(521),
                             TableId = 1
                         },
                         new
@@ -214,8 +214,8 @@ namespace AABooking.Server.Migrations
                             ReservationId = 2,
                             CusId = 2,
                             ResId = 2,
-                            ReservationDate = new DateTime(2023, 2, 8, 18, 55, 4, 343, DateTimeKind.Local).AddTicks(311),
-                            ReservationTime = new DateTime(2023, 2, 8, 18, 55, 4, 343, DateTimeKind.Local).AddTicks(305),
+                            ReservationDate = new DateTime(2023, 2, 9, 11, 43, 47, 299, DateTimeKind.Local).AddTicks(1523),
+                            ReservationTime = new DateTime(2023, 2, 9, 11, 43, 47, 299, DateTimeKind.Local).AddTicks(1517),
                             TableId = 2
                         },
                         new
@@ -223,8 +223,8 @@ namespace AABooking.Server.Migrations
                             ReservationId = 3,
                             CusId = 3,
                             ResId = 3,
-                            ReservationDate = new DateTime(2023, 2, 8, 18, 55, 4, 343, DateTimeKind.Local).AddTicks(315),
-                            ReservationTime = new DateTime(2023, 2, 8, 18, 55, 4, 343, DateTimeKind.Local).AddTicks(313),
+                            ReservationDate = new DateTime(2023, 2, 9, 11, 43, 47, 299, DateTimeKind.Local).AddTicks(1526),
+                            ReservationTime = new DateTime(2023, 2, 9, 11, 43, 47, 299, DateTimeKind.Local).AddTicks(1525),
                             TableId = 3
                         });
                 });
@@ -262,23 +262,23 @@ namespace AABooking.Server.Migrations
                             Address = "111",
                             Contact = "91145295",
                             CusId = 1,
-                            ResName = "Black"
+                            ResName = "Italian Restaurant"
                         },
                         new
                         {
                             ResId = 2,
                             Address = "112",
-                            Contact = "91144444",
+                            Contact = "97346471",
                             CusId = 2,
-                            ResName = "Blue"
+                            ResName = "Mexican Restaurant"
                         },
                         new
                         {
                             ResId = 3,
                             Address = "113",
-                            Contact = "99999999",
+                            Contact = "90461363",
                             CusId = 3,
-                            ResName = "Red"
+                            ResName = "Chinese Restaurant"
                         });
                 });
 
@@ -510,14 +510,14 @@ namespace AABooking.Server.Migrations
                         new
                         {
                             Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
-                            ConcurrencyStamp = "0121410e-83f6-4faf-820c-34b7395957c8",
+                            ConcurrencyStamp = "4f2e358a-3473-48c8-b0a1-cd076d03a678",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
-                            ConcurrencyStamp = "c85e04fb-d98a-4431-b820-141752e225ed",
+                            ConcurrencyStamp = "8043775b-2411-4a0b-8105-8e2354b3e00f",
                             Name = "User",
                             NormalizedName = "USER"
                         });

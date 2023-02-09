@@ -94,7 +94,7 @@ namespace AABooking.Server.Data.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "faad4266-ab48-4c90-8f1b-6fb3ec1a00c1",
+                            ConcurrencyStamp = "d3e6d124-01e1-4f20-afcb-36e3baf454e3",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -102,9 +102,9 @@ namespace AABooking.Server.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEF1+lIrhCiDP0ua8wh6SSttk34fCBSIeJG/A49mOF3E1SpPjnsNzcNPJqKHa7miyBg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHNtlCXG5kTNO3nMIyMnM1DFEk3NxQRsxd2SWCSMqmCIJ2hXUsfepUBt+nj+sNKmVw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6b6fbcb3-03c0-403f-878b-3026e5b1fb07",
+                            SecurityStamp = "8fe71dcc-5794-4922-a462-ea2e2b0ab610",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -203,8 +203,8 @@ namespace AABooking.Server.Data.Migrations
                             ReservationId = 1,
                             CusId = 1,
                             ResId = 1,
-                            ReservationDate = new DateTime(2023, 2, 9, 9, 44, 17, 472, DateTimeKind.Local).AddTicks(5254),
-                            ReservationTime = new DateTime(2023, 2, 9, 9, 44, 17, 471, DateTimeKind.Local).AddTicks(2548),
+                            ReservationDate = new DateTime(2023, 2, 9, 11, 43, 47, 299, DateTimeKind.Local).AddTicks(243),
+                            ReservationTime = new DateTime(2023, 2, 9, 11, 43, 47, 298, DateTimeKind.Local).AddTicks(521),
                             TableId = 1
                         },
                         new
@@ -212,8 +212,8 @@ namespace AABooking.Server.Data.Migrations
                             ReservationId = 2,
                             CusId = 2,
                             ResId = 2,
-                            ReservationDate = new DateTime(2023, 2, 9, 9, 44, 17, 472, DateTimeKind.Local).AddTicks(6741),
-                            ReservationTime = new DateTime(2023, 2, 9, 9, 44, 17, 472, DateTimeKind.Local).AddTicks(6734),
+                            ReservationDate = new DateTime(2023, 2, 9, 11, 43, 47, 299, DateTimeKind.Local).AddTicks(1523),
+                            ReservationTime = new DateTime(2023, 2, 9, 11, 43, 47, 299, DateTimeKind.Local).AddTicks(1517),
                             TableId = 2
                         },
                         new
@@ -221,8 +221,8 @@ namespace AABooking.Server.Data.Migrations
                             ReservationId = 3,
                             CusId = 3,
                             ResId = 3,
-                            ReservationDate = new DateTime(2023, 2, 9, 9, 44, 17, 472, DateTimeKind.Local).AddTicks(6745),
-                            ReservationTime = new DateTime(2023, 2, 9, 9, 44, 17, 472, DateTimeKind.Local).AddTicks(6744),
+                            ReservationDate = new DateTime(2023, 2, 9, 11, 43, 47, 299, DateTimeKind.Local).AddTicks(1526),
+                            ReservationTime = new DateTime(2023, 2, 9, 11, 43, 47, 299, DateTimeKind.Local).AddTicks(1525),
                             TableId = 3
                         });
                 });
@@ -508,14 +508,14 @@ namespace AABooking.Server.Data.Migrations
                         new
                         {
                             Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
-                            ConcurrencyStamp = "98726f6f-fbec-4c31-b5c9-022aad064974",
+                            ConcurrencyStamp = "4f2e358a-3473-48c8-b0a1-cd076d03a678",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
-                            ConcurrencyStamp = "5fb2e5c6-956a-4af1-8e5f-b2113b2dd361",
+                            ConcurrencyStamp = "8043775b-2411-4a0b-8105-8e2354b3e00f",
                             Name = "User",
                             NormalizedName = "USER"
                         });
